@@ -1,0 +1,5 @@
+**Topic 1: Verstappen’s First Win Since May & Fastest F1 Race Ever** - Why it's trending: Max Verstappen snapped a 3-month winless streak and clocked the fastest average speed in F1 history at Monza, sparking celebratory memes and stat-packed posts across X and Reddit. - Keywords: #Verstappen, #Monza2025, #FastestRace
+
+**Topic 2: McLaren’s Late-Race Team-Order Drama** - Why it's trending: McLaren’s radio call forcing Piastri to let Norris by ignited heated debates on strategy ethics, topping r/formula1 upvotes and LinkedIn F1 analyst threads. - Keywords: #McLaren, #TeamOrders, #ItalianGP
+
+**Topic 3: Oliver Bearman Penalty-Point Storm & Near Race Ban** - Why it's trending: Bearman’s collision with Sainz earned him 2 more penalty points, putting him one away from a race ban, driving viral tweet chains and Reddit “driver rating” polls. - Keywords: #Bearman, #PenaltyPoints, #F1Stewards

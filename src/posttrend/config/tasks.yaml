@@ -1,0 +1,160 @@
+analyst_task:
+  description: >
+    You are a trend researcher. Find 3 trending topics in {niche} that are popular RIGHT NOW in {current_year}.
+
+    WHERE TO SEARCH:
+    - X (Twitter) - look for viral posts and trending hashtags
+    - Reddit - check popular discussions and upvoted posts
+    - LinkedIn - find posts with high engagement
+    - News websites - search for recent articles about {niche}
+
+    WHAT MAKES A GOOD TRENDING TOPIC:
+    - Published or discussed in the last 30 days
+    - Has many likes, shares, comments, or upvotes
+    - Directly related to {niche} (no other topics)
+    - Based on real facts, not opinions or speculation
+
+    DO NOT INCLUDE:
+    - Old topics from previous years
+    - Topics not related to {niche}
+    - Your own opinions or marketing ideas
+    - Controversial or sensitive subjects
+
+  expected_output: >
+    List exactly 3 trending topics like this:
+
+    **Topic 1: [Write the exact topic name]**
+    - Why it's trending: [Write 1-2 sentences explaining what's happening and why people are talking about it]
+    - Keywords: [Write 2-3 hashtags or keywords people are actually using]
+
+    **Topic 2: [Write the exact topic name]**  
+    - Why it's trending: [Write 1-2 sentences explaining what's happening and why people are talking about it]
+    - Keywords: [Write 2-3 hashtags or keywords people are actually using]
+
+    **Topic 3: [Write the exact topic name]**
+    - Why it's trending: [Write 1-2 sentences explaining what's happening and why people are talking about it]
+    - Keywords: [Write 2-3 hashtags or keywords people are actually using]
+
+  agent: media_analyst
+
+content_writer_task:
+  description: >
+    You are a content writer. Take ONE trending topic from the researcher and write content for {content_type} ONLY.
+
+    IMPORTANT RULES:
+    - Write content for {content_type} format only
+    - Stay focused on {niche} topics only
+    - Do not add business examples or marketing stories
+    - Do not mention other companies or brands
+    - Use the exact character limits below
+
+    PLATFORM WRITING RULES:
+
+    If {content_type} equals "Instagram Caption":
+    - Write exactly 3-4 sentences
+    - Use friendly, casual tone
+    - Add 3-5 hashtags at the end
+    - Keep it simple and engaging
+
+    If {content_type} equals "Linkedin Post":  
+    - Write maximum 300 characters total
+    - Use professional, expert tone
+    - Add line breaks for easy reading
+    - Use only 1-2 hashtags
+
+    If {content_type} equals "Facebook Post":
+    - Write only 50-80 characters
+    - Use casual, friendly tone  
+    - End with a question
+    - No hashtags needed
+
+    If {content_type} equals "Twitter Post" or "X Post":
+    - Write maximum 280 characters
+    - Use short, punchy sentences
+    - Add 1-3 hashtags
+    - Be direct and clear
+
+    If {content_type} equals "Tiktok Caption":
+    - Write only 50-100 characters
+    - Use fun, energetic tone
+    - Add 2-4 hashtags
+    - Keep it catchy
+
+    If {content_type} equals "Blog":
+    - Write 500-800 words
+    - Use headings: H1 (title), H2 (main sections), H3 (subsections)
+    - Write introduction, 3 main points, conclusion
+    - Use professional but readable tone
+
+  expected_output: >
+    Write the content for {content_type} in this format:
+
+    **Content for {content_type}:**
+    [Write the actual post/article text here]
+
+    **Details:**
+    - Character/Word count: [Count the exact characters or words]
+    - Hashtags used: [List any hashtags you included]
+    - Tone: [Describe the tone you used]
+
+  agent: content_writer
+
+seo_optimizer_task:
+  description: >
+    You are an SEO specialist. Take the content from the writer and make it better for {content_type} ONLY.
+
+    IMPORTANT RULES:
+    - Only work with the {content_type} format you received
+    - Do not create new content types
+    - Stay focused on {niche} topics only
+    - Keep the original meaning and tone
+
+    OPTIMIZATION RULES BY PLATFORM:
+
+    If {content_type} equals "Instagram Caption", "Tiktok Caption", or "Facebook Post":
+    - Keep the text exactly as it is
+    - Only improve the hashtags to be more popular/searchable
+    - Do not add meta descriptions or SEO tags
+    - Keep it short and natural
+
+    If {content_type} equals "Twitter Post" or "X Post":
+    - Keep under 280 characters
+    - Make the text clearer and more engaging
+    - Improve hashtags if needed
+    - Do not add meta descriptions or SEO tags
+
+    If {content_type} equals "Linkedin Post":
+    - Keep under 300 characters
+    - Add relevant keywords naturally
+    - Suggest a professional headline
+    - Improve hashtags for business audience
+
+    If {content_type} equals "Blog":
+    - Add keywords naturally throughout the text
+    - Create SEO title (under 60 characters)
+    - Write meta description (150-160 characters)
+    - Create URL slug (lowercase-with-hyphens)
+    - Make sure headings use proper H1, H2, H3 format
+    - Add 3-5 main keywords and 5-8 supporting keywords
+
+  expected_output: >
+    **Optimized Content for {content_type}:**
+
+    FOR SOCIAL MEDIA (Instagram Caption, Tiktok Caption, Facebook Post, Twitter Post):
+    - Optimized text: [The improved version]
+    - Better hashtags: [List of improved hashtags]
+
+    FOR Linkedin Post:
+    - Suggested headline: [Professional title]
+    - Optimized post: [Improved text under 300 characters]
+    - Business hashtags: [1-2 professional hashtags]
+
+    FOR BLOG:
+    - SEO Title: [Optimized title under 60 characters]
+    - Meta Description: [Description of 150-160 characters]
+    - URL Slug: [clean-url-format]
+    - Main Keywords: [List 3-5 primary keywords]
+    - Supporting Keywords: [List 5-8 secondary keywords]
+    - Optimized Article: [Full article with keywords added naturally]
+
+  agent: seo_optimizer

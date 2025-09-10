@@ -1,0 +1,170 @@
+analyst_task:
+  description: >
+    Conduct comprehensive market intelligence and trend analysis within the {niche} domain.
+    Execute systematic monitoring across multiple digital channels including X (Twitter), 
+    Reddit, LinkedIn, industry publications, and authoritative news sources to identify 
+    emerging trends with significant market traction. Analyze engagement metrics, sentiment 
+    indicators, and temporal patterns to determine trend viability and business relevance.
+
+    Key Performance Indicators:
+    - Trend recency (maximum 30-day timeframe)
+    - Engagement velocity and growth trajectory  
+    - Cross-platform validation and consistency
+    - Commercial applicability and market opportunity
+    - Audience demographics and psychographics alignment
+
+    Exclusion Criteria:
+    - Legacy or evergreen content without current momentum
+    - Politically sensitive or controversial subject matter
+    - Topics lacking clear commercial application or ROI potential
+
+  expected_output: >
+    Deliver a strategic trend analysis report containing three (3) validated trending topics,
+    each structured as follows:
+
+    **Trend Analysis Report - {niche} Sector**
+
+    **Trending Topic #1: [Specific Topic Designation]**
+    - Market Context: [Comprehensive explanation of trend emergence and market drivers]
+    - Primary Keywords: [3-5 strategically identified hashtags/keywords with search volume context]
+    - Commercial Opportunity: [Detailed business application strategy and market entry approach]
+    - Engagement Metrics: [Quantified performance indicators where available]
+
+    **Trending Topic #2: [Specific Topic Designation]**
+    - Market Context: [Comprehensive explanation of trend emergence and market drivers]
+    - Primary Keywords: [3-5 strategically identified hashtags/keywords with search volume context]
+    - Commercial Opportunity: [Detailed business application strategy and market entry approach]
+    - Engagement Metrics: [Quantified performance indicators where available]
+
+    **Trending Topic #3: [Specific Topic Designation]**
+    - Market Context: [Comprehensive explanation of trend emergence and market drivers]
+    - Primary Keywords: [3-5 strategically identified hashtags/keywords with search volume context]
+    - Commercial Opportunity: [Detailed business application strategy and market entry approach]
+    - Engagement Metrics: [Quantified performance indicators where available]
+
+  agent: media_analyst
+
+content_development_task:
+  description: >
+    Execute strategic content development based on validated trend intelligence, creating
+    platform-optimized content aligned with {content_type} specifications. Implement
+    platform-native best practices while maintaining brand consistency and engagement
+    optimization standards. Content must demonstrate clear value proposition delivery
+    and strategic alignment with identified market opportunities.
+
+    **Platform Content Specifications:**
+
+    **Instagram Content Protocol:**
+    - Character Range: 150-300 characters optimal
+    - Tone Framework: Authentic, visually-driven, community-focused
+    - Hashtag Strategy: 5-10 strategic hashtags with mix of broad/niche targeting
+    - Engagement Elements: Call-to-action integration, story-driven narrative
+
+    **LinkedIn Content Protocol:**
+    - Character Range: 150-300 characters for optimal algorithm performance
+    - Tone Framework: Professional thought leadership, industry expertise demonstration
+    - Formatting: Strategic line breaks, bullet points for readability optimization
+    - Hashtag Strategy: 2-3 professional/industry-specific hashtags maximum
+
+    **Facebook Content Protocol:**
+    - Character Range: 40-80 characters for maximum organic reach
+    - Tone Framework: Conversational, community-building, discussion-oriented
+    - Engagement Strategy: Question-based CTAs, discussion prompts
+    - Visual Integration: Optimized for accompanying visual content
+
+    **X (Twitter) Content Protocol:**
+    - Character Limit: 280 characters maximum (optimal 150-250)
+    - Content Strategy: Concise value delivery, thread potential consideration
+    - Hashtag Integration: 1-2 strategic hashtags for discovery optimization
+    - Engagement Mechanics: Retweet/reply optimization, conversation starters
+
+    **TikTok Content Protocol:**
+    - Character Range: 100-150 characters optimal
+    - Tone Framework: Trend-responsive, authentic, entertainment-value integration
+    - Hashtag Strategy: 3-5 trending + niche hashtags for algorithm optimization
+    - Content Style: Hook-driven, story arc consideration
+
+    **Blog Article Content Protocol:**
+    - Word Count: 800-1500 words for optimal SEO performance
+    - Structure Requirements: H1/H2/H3 hierarchy, introduction/body/conclusion framework
+    - Content Depth: Comprehensive topic coverage, actionable insights delivery
+    - SEO Foundation: Keyword integration readiness, internal linking opportunities
+
+  expected_output: >
+    **Content Asset Delivery Package:**
+
+    **Primary Content Asset:** [Platform-optimized content piece for {content_type}]
+
+    **Content Specifications:**
+    - Final Character/Word Count: [Exact count with platform compliance confirmation]
+    - Tone Alignment: [Professional tone classification and brand voice consistency]
+    - Engagement Elements: [Integrated CTAs, hooks, and interaction drivers]
+    - Platform Optimization: [Native feature utilization and algorithm considerations]
+
+    **Supporting Elements:**
+    - Strategic Hashtags: [Platform-appropriate hashtag selection with rationale]
+    - Posting Optimization: [Recommended timing and frequency guidelines]
+    - Performance Indicators: [Expected engagement metrics and success benchmarks]
+    - Cross-Platform Adaptation Notes: [Scaling opportunities for content repurposing]
+
+  agent: content_writer
+
+search_optimization_task:
+  description: >
+    Execute comprehensive search engine optimization protocols based on content type
+    classification and platform requirements. Implement strategic keyword integration,
+    metadata optimization, and technical SEO enhancements while preserving content
+    quality and user experience standards. Apply differential optimization strategies
+    based on content format and distribution channel requirements.
+
+    **Optimization Protocol Matrix:**
+
+    **Blog Article Optimization (Full SEO Suite):**
+    - Keyword Research: Primary and secondary keyword identification with search volume analysis
+    - On-Page Optimization: Strategic keyword placement maintaining 1-2% density
+    - Technical Elements: Title tag, meta description, URL slug optimization
+    - Content Structure: H1/H2/H3 hierarchy optimization with keyword integration
+    - Internal Architecture: Strategic internal linking recommendations
+
+    **LinkedIn Content Optimization (Professional Focus):**
+    - Keyword Enhancement: Industry-specific terminology integration
+    - Professional Positioning: Thought leadership angle optimization
+    - Character Efficiency: Maximum value delivery within platform constraints
+    - Network Amplification: Connection and sharing optimization strategies
+
+    **Social Media Content Optimization (Discoverability Focus):**
+    - Hashtag Optimization: Strategic hashtag research and selection
+    - Platform Algorithm Alignment: Native feature utilization for reach maximization
+    - Engagement Optimization: Comment and sharing trigger integration
+    - Content Formatting: Platform-native styling and presentation enhancement
+
+  expected_output: >
+    **Search Optimization Report and Optimized Assets:**
+
+    **For Blog Content:**
+    - **SEO Title:** [Optimized title under 60 characters with primary keyword integration]
+    - **Meta Description:** [150-160 character compelling description with CTA integration]
+    - **URL Slug:** [SEO-friendly URL structure with keyword inclusion]
+    - **Primary Keywords:** [3-5 main target keywords with search volume data]
+    - **Secondary Keywords:** [5-8 supporting keywords for content depth]
+    - **Optimized Content:** [Full content with natural keyword integration and improved structure]
+    - **Technical Recommendations:** [Schema markup, image optimization, internal linking strategy]
+
+    **For LinkedIn Content:**
+    - **Professional Headline:** [Compelling title optimizing for professional discovery]
+    - **Optimized Post Content:** [Enhanced version maintaining character limits with keyword improvement]
+    - **Industry Hashtags:** [2-3 strategic professional hashtags with reach potential analysis]
+
+    **For Social Media Platforms:**
+    - **Original Content:** [Preserved authentic voice and platform compliance]
+    - **Optimized Hashtags:** [Research-backed hashtag recommendations with performance indicators]
+    - **Engagement Enhancements:** [Subtle optimization for platform algorithm preferences]
+    - **Cross-Platform Considerations:** [Adaptation strategies for content scaling]
+
+    **Performance Tracking Framework:**
+    - **Key Metrics:** [Relevant KPIs for content type and platform]
+    - **Monitoring Schedule:** [Recommended review intervals and optimization cycles]
+    - **Success Benchmarks:** [Quantified targets for performance evaluation]
+
+  agent: seo_optimizer
+  output_file: optimized_content_assets.md
