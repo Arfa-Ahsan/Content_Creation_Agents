@@ -18,8 +18,8 @@ def run():
     Run the crew.
     """
     inputs = {
-        "niche": "Monza Grand Prix 2025 Formula 1",
-        "content_type":"blog",   #["blog", "LinkedIn post", "Instagram caption","Tiktok Caption","Twitter Thread"]
+        "topic": "top trending spotify song in pakistan",
+        "content_type":"Facebook Post",   #["blog", "LinkedIn post", "Instagram caption","Tiktok Caption","Twitter Thread"]
         'current_year': str(datetime.now().year)
     }
     
@@ -34,7 +34,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "niche": "AI Trends",
+        "topic": "AI Trends",
         "content_type":"LinkedIn post",   #["blog", "LinkedIn post", "Instagram caption","Tiktok Caption","Twitter Thread"]
         'current_year': str(datetime.now().year)
     }

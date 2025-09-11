@@ -19,7 +19,7 @@ class Posttrend():
 
         # Get API key from .env
         self.grok_llm = LLM(
-        model="huggingface/moonshotai/Kimi-K2-Instruct-0905",   
+        model="huggingface/meta-llama/Llama-3.3-70B-Instruct",   
         api_key=os.getenv("HF_TOKEN")
 )
     @agent
