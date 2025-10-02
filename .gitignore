@@ -6,6 +6,7 @@ __pycache__/
 
 # Environment files
 .env
+video/
 
 # Virtual environment
 .venv/
@@ -17,3 +18,12 @@ __pycache__/
 *.log
 *.sqlite3
 .cache/
+
+# Ignore specific files
+test.py 
+sample.py
+tools/custom_tool.py
+
+prompt_versioning/
+knowledge/
+tests/

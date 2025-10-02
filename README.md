@@ -44,26 +44,13 @@ Manual content creation is slow, inconsistent, and often misses current trends.
 
 ---
 
-## What Will It Do?
+## LLM Provider Options
 
-You provide a topic and the type of content you want (e.g., blog, Instagram caption).
+This project supports multiple LLM backends. By default, it uses **Hugging Face Inference (Llama 3 70B Instruct)**, but you can switch to:
 
-The system automatically:
+- **ChatGroq Moonshot AI (kimi k2 instruct 0905)**
+- **Azure AI Foundry (gpt-oss-120b)**
 
-1. Finds what’s trending in that topic.
-2. Writes a draft tailored to your chosen platform.
-3. Optimizes the draft for SEO and engagement.
-
-You get ready-to-use content that’s relevant, well-written, and optimized—without manual effort.
+You can select your preferred LLM by editing the `Posttrend` class in `src/posttrend/crew.py` and uncommenting the relevant section.
 
 ---
-
-## How to Explain to Someone
-
-> “This tool is like having a team of expert researchers, writers, and SEO specialists working for you. You just tell it what topic you want content about and where you want to post it. The system finds what’s trending, writes the content in the right style for your platform, and makes sure it’s optimized for search engines. It saves you hours of work and helps you stay relevant and engaging online.”
-
----
-
-## In Summary
-
-Your project automates the entire content creation pipeline for any topic and platform, making it fast, consistent, and effective for anyone who needs fresh, optimized content.

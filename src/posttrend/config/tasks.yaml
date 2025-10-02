@@ -1,41 +1,47 @@
 analyst_task:
   description: >
-    You are a trend researcher. Find trending topics in {topic} that are popular
-    RIGHT NOW in {current_year}.
+    You are a trend researcher. Find the most relevant, high-engagement topics 
+    in {topic} that are trending RIGHT NOW in {current_year}. 
 
     RULES:
-    - If {topic} wording suggests a SINGLE trend 
-      (e.g., "most trending song", "current #1 framework"), return 1 exact topic.  
-    - If {topic} wording suggests MULTIPLE trends 
-      (e.g., "trending songs", "top 5 frameworks", "10 fashion trends"), 
-      return exactly that many.  
-    - If user does not specify a number, return 3–5 topics by default.  
-    - If {topic} refers to a product category, framework, tool, or technology, 
-      return the **exact names** (not vague categories).
-    - If {topic} is broad (e.g., "sustainable fashion"), return specific sub-trends.
+    - If {topic} specifies a number (e.g., "top 10 frameworks"), return exactly that many.  
+    - If {topic} suggests a SINGLE trend (e.g., "most trending song"), return only 1.  
+    - If {topic} is general (e.g., "AI in healthcare"), return 3–5 trending subtopics.  
+    - Always return the **exact names** of frameworks, tools, hashtags, or releases.  
+    - Only include trends from the last 30 days with measurable engagement 
+      (shares, likes, votes, comments, or reposts).  
+    - DO NOT explain your reasoning or mention "final answer" — just output the results.  
 
-    SOURCES TO CHECK:
-    - X (Twitter) → trending hashtags, viral tweets
-    - Reddit → top discussions with high upvotes
-    - LinkedIn → posts with strong engagement
-    - News → recent articles within 30 days
-    A GOOD TREND MUST BE:
-    - Published/discussed in the last 30 days
-    - High engagement (likes, shares, comments, upvotes)
-    - Specific (e.g., exact framework, tool, library, update, or release)
+    SOURCES TO USE:
+    - X (Twitter): trending hashtags, viral posts
+    - Reddit: top-voted discussions
+    - LinkedIn: high-engagement professional posts
+    - News: articles published within 30 days
+
     AVOID:
-    - Vague generalizations ("AI agents are growing")
-    - Old or irrelevant topics
-    - Controversial/sensitive content
-    - Personal opinions or marketing stories
-  expected_output: >
-    Provide trending topics based on user input:  
+    - Vague phrases like "AI is popular"
+    - Self-references ("this is the final answer", "above response")
+    - Old or irrelevant information
+    - Marketing fluff
 
-    Use this format for each topic:
-    **Topic 1: [exact name, e.g., "LangChain 0.3 release"]**
-    - Why it's trending: [3–4 sentences, factual, neutral tone]
-    - Keywords: [2–3 hashtags/keywords people actually use]
-    (Repeat for Topic 2 & 3)
+  expected_output: >
+    Return ONLY in this markdown structure:
+
+    **Topic 1: [Exact Trend Name]**
+    - Why it's trending: [3–4 factual sentences, neutral tone]
+    - Keywords/Hashtags: [#hashtag1, #hashtag2]
+
+    **Topic 2: [Exact Trend Name]**
+    - Why it's trending: [3–4 factual sentences, neutral tone]
+    - Keywords/Hashtags: [#hashtag1, #hashtag2]
+
+    (continue until required number of topics is reached)
+
+    **Sources:**
+    1. [link1]
+    2. [link2]
+    (up to 5 verified links used for the research)
+
   agent: media_analyst
 
 content_writer_task:
@@ -44,77 +50,151 @@ content_writer_task:
     and create ONE cohesive piece of content for {content_type}.
 
     RULES:
+    - You can ONLY use the information provided by the analyst, and you must keep it factual.  
+    - Do NOT hallucinate, assume, exaggerate, or add information that is not in the analyst’s output 
+      or from a verified source.  
+    - If the analyst’s information is insufficient or unclear, you may perform ONE additional search 
+      to gather missing context before writing. Use the search ONLY when strictly necessary.  
+    - If no additional reliable information is found, acknowledge gaps instead of making things up 
+      (e.g., "Details not available").  
     - If the analyst returns ONE topic → write a deep-dive style post (why it matters, impact, context).  
     - If the analyst returns MULTIPLE topics (e.g., 5 or 10) → write a listicle-style post 
       covering ALL of them with clear structure.  
-    - Adapt naturally to the domain (fashion, tech, music, lifestyle, etc.).
-    - Follow tone & structure rules per platform (see below).
-    - Respect length and style requirements of {content_type}.
-    - Keep content factual, engaging, and aligned with user’s exact request.
+    - Ensure ALL topics provided by the analyst are covered.  
+    - At the end of the content, include a "Sources" section:  
+      - Always include the exact sources provided by the analyst.  
+      - If you used your own search for additional context, add those verified links as well.  
+      - Never fabricate or invent a source.  
+    - Adapt naturally to the domain (fashion, tech, music, lifestyle, etc.).  
+    - Follow tone & structure rules per platform (see below). 
+    - Adapt naturally to the domain (fashion, tech, music, lifestyle, etc.).  
+    - Follow tone & structure rules per platform (see below).  
+    - Respect length and style requirements of {content_type}.  
+    - Keep content factual, engaging, and aligned with the analyst’s findings and the user’s request.
+
   platform_rules:
     Instagram Caption:
-      - Length: 3–4 sentences
+      - Max Length: 2,200 characters
+      - Common Length: 150–300 characters (2–3 sentences, highly engaging)
       - Tone: Friendly, simple, casual
       - Hashtags: 3–5 at the end
+      - Flexibility: Captions may vary in length/format but must remain within max limit and align with casual, visually engaging style
+      - Best Practices: Use emojis sparingly, break lines for readability
+
     Linkedin Post:
-      - Length: 150–200 words
+      - Max Length: 3,000 characters # LinkedIn hard limit
+      - Common Length: 100–200 words (600–1,200 characters)
       - Tone: Professional, expert, insightful
-      - Format: 2–3 short paras
+      - Format: 2–3 short paras (bullet points allowed)
       - Hashtags: 5–6 max
+      - Flexibility: Posts may vary in word count but must stay professional and engaging
+      - Best Practices: Add call-to-action (e.g., "What are your thoughts?"), use whitespace for readability
+
     Facebook Post:
-      - Length: 100–150 words
+      - Max Length: 63,206 characters # Facebook official post limit
+      - Common Length: 50–150 words (250–800 characters)
       - Tone: Conversational, approachable
       - Format: 2–3 short paras
       - End with a question
       - No hashtags
+      - Flexibility: Posts may vary in format but must feel natural and audience-focused
+      - Best Practices: Emojis and line breaks are welcome, include links or images for higher engagement
+
     Twitter/X Post:
-      - Length: 50-70 characters
+      - Max Length: 280 characters # Standard users
+      - Common Length: 70–150 characters (1–2 sentences)
       - Tone: Direct, bold, concise
       - Hashtags: 1–3
+      - Flexibility: Tweets can be very short (even one-liners) but never exceed the cap
+      - Best Practices: Use strong hooks, trending hashtags, and avoid filler words
+
     TikTok Caption:
-      - Length: 50–100 characters
+      - Max Length: 2,200 characters # TikTok hard limit
+      - Common Length: 100–300 characters
       - Tone: Fun, energetic, catchy
       - Hashtags: 2–4
+      - Flexibility: Captions may vary but should grab attention quickly and fit the playful tone
+      - Best Practices: Use emojis, trending hashtags, and encourage interaction (e.g., "Tag a friend!")
+
     Blog:
-      - Length: 800–1000 words
-      - Structure: H1 title → intro → 3 H2 sections (with H3s if needed) → conclusion
+      - Max Length: 100,000+ characters (practically unlimited, platform-dependent)
+      - Common Length: 800–1,500 words (for SEO + engagement)
+      - Structure: H1 title → intro → 3–5 H2 sections (with H3s if needed) → conclusion
       - Tone: Professional, easy-to-read, engaging
+      - Flexibility: Posts may vary in structure or length but should stay aligned with clear headings and readability
+      - Best Practices: Use short paragraphs, bullet points, internal/external links, and an SEO-friendly conclusion
   expected_output: >
     **Content for {content_type}:**
     [The draft text]
+
+    **Sources:**
+    1. [link1]
+    2. [link2]
+    (include all sources provided by analyst + any additional verified sources you used;
+    if none, write "No sources available"
+
     **Details:**
     - Word/character count: [exact count]
     - Hashtags used: [list if any]
     - Tone: [stated tone]
+
   agent: content_writer
 
 seo_optimizer_task:
   description: >
     You are an SEO specialist. Take the writer's draft and optimize it for {content_type}.
-    DO NOT change content type, meaning, or tone.
+    DO NOT change the meaning, tone, or content type.
+    Respect the platform's max length limits.Output must be ready-to-publish text for {content_type} ONLY.
+
   optimization_rules:
-    Instagram/TikTok/Facebook:
-      - Keep text same
-      - Only improve hashtags → use high-engagement keywords
+    Instagram:
+      - Max Length: 2,200 characters
+      - Keep captions friendly, simple, and casual
+      - Optimize hashtags (3–5, high-engagement, niche-relevant)
+      - Use emojis sparingly, break lines for readability
+
+    TikTok:
+      - Max Length: 2,200 characters
+      - Tone: Fun, energetic, catchy
+      - Optimize hashtags (2–4, trending + niche)
+      - Encourage interaction (e.g., "Tag a friend!", "What do you think?")
+
+    Facebook:
+      - Max Length: 63,206 characters
+      - Common Length: 50–150 words
+      - Conversational, approachable tone
+      - Format: 2–3 short paras
+      - End with a question to drive engagement
+      - No hashtags
+      - Use emojis/line breaks for readability
+
     Twitter/X:
-      - Ensure <280 chars
-      - Make punchier, clearer
-      - Optimize hashtags
+      - Max Length: 280 characters
+      - Common Length: 70–150 characters
+      - Make punchier, bolder, clearer
+      - Optimize hashtags (1–3, trending + topic-specific)
+      - Strong hook or CTA in first few words
+
     Linkedin Post:
-      - Keep 150–200 words
-      - Add relevant business keywords naturally
-      - Suggest a professional headline
+      - Max Length: 3,000 characters
+      - Common Length: 100–200 words (600–1,200 characters)
+      - Professional, expert, insightful tone
+      - Format: 2–3 short paras, bullet points allowed
+      - Add relevant business/industry keywords naturally
+      - Suggest a professional, concise headline (<80 chars)
       - Optimize hashtags (2–3)
+
     Blog:
-      - SEO Title (<60 chars)
-      - Meta Description (150–160 chars)
-      - URL Slug (lowercase-hyphen-format)
-      - Add keywords naturally (3–5 main, 5–8 secondary)
-      - Keep H1/H2/H3 format
-      - Maintain readability
+      - Max Length: 100,000+ characters (practically unlimited)
+      - Common Length: 800–1,500 words
+      - SEO Title: under 60 characters, keyword-rich
+      - Meta Description: 150–160 characters
+      - URL Slug: lowercase-hyphen-format
+      - Insert keywords naturally (3–5 main, 5–8 secondary)
+      - Preserve H1/H2/H3 structure with scannable sections
+      - Maintain readability (short paras, bullet points, internal/external links)
+
   expected_output: >
-    **Optimized Content for {content_type}:**
-    - For Social (IG, TikTok, FB, Twitter): improved text + hashtags
-    - For LinkedIn: headline + improved post + hashtags
-    - For Blog: SEO title, meta description, slug, keywords, optimized article
+    Return ONLY the optimized {content_type} content text and sources, as it should appear when published.  
+    Do NOT add explanations, formatting notes, or outputs for other platforms.
   agent: seo_optimizer
