@@ -22,6 +22,10 @@ Manual content creation is slow, inconsistent, and often misses current trends.
 
 ---
 
+## 🎥 Demo Video
+
+▶️ [Watch the demo (prototype.webm)](https://github.com/Arfa-Ahsan/Content_Creation_Agents/blob/7edb1a0763af10de301a616ce0799463510bf12e/Video/prototype.webm)
+
 ## How Does It Work?
 
 ### Media Analyst Agent
